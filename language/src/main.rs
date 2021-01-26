@@ -17,6 +17,7 @@ mod name_resolution;
 mod rustspec;
 mod rustspec_to_easycrypt;
 mod rustspec_to_fstar;
+mod rustspec_to_coq;
 mod typechecker;
 mod util;
 
@@ -125,6 +126,12 @@ impl Callbacks for HacspecCallbacks {
                     &krate,
                     &file,
                     &top_ctx,
+                ),
+                "v" => rustspec_to_coq::translate_and_write_to_file(
+                    &compiler.session(),
+                    &krate,
+                    &file,
+                    &typ_dict,
                 ),
                 _ => {
                     &compiler
