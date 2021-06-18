@@ -44,9 +44,9 @@ function typecheck {
 }
 
 cd $(dirname "$0")/../
-#cargo clean
-#cargo build
-#cargo install --path language
+cargo clean
+cargo build
+cargo install --path language
 typecheck hacspec-chacha20             ec      fst    json      coq  Hacspec.Chacha20.fst
 typecheck hacspec-chacha20poly1305     ec      fst    json      coq  Hacspec.Chacha20Poly1305.fst
 typecheck hacspec-poly1305             ec      fst    json      coq  Hacspec.Poly1305.fst
